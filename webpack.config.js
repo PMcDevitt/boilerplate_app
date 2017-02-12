@@ -1,34 +1,26 @@
-var debug = process.env.NODE_ENV !== "production";
-var webpack = require('webpack')
-var path = require('path')
+const path = require('path')
+const BUILD_DIR = path.resolve(__dirname, 'public/javascript')
+const APP_DIR = path.resolve(__dirname, 'src/app')
 
-var BUILD_DIR = path.resolve(__dirname, 'src/public')
-var APP_DIR = path.resolve(__dirname, 'src/app')
-
-var config = {
-  entry: APP_DIR + '/index.jsx',
+const config = {
+  entry: APP_DIR + '/Main.jsx',
   output: {
     path: BUILD_DIR,
     filename: 'bundle.js'
   },
-  module : {
-    loaders : [
-      {
-        test : /\.jsx?/,
-        include : APP_DIR,
-        loader : 'babel-loader'
-      }
-    ],
-    query: {
-      presets: ['react', 'es2015'],
-      plugins: ['react-html-attrs', 'transform-class-properties', 'transform-decorators-legacy']
-    }
+  devServer: {
+    inline: true,
+    contentBase: './src/app',
+    port: 8100
   },
-  plugins: debug ? [] : [
-    new webpack.optimize.DedupePlugin(),
-    new webpack.optimize.OccurenceOrderPlugin(),
-    new webpack.optimize.UglifyJsPlugin({ mangle: false, sourcemap: false }),
-  ],
+  module: {
+    loaders: [
+      {
+        test: /\.jsx$/,
+        exclude: /node_modules/,
+        loader: 'babel-loader'
+      }
+    ]
+  }
 }
-//// https://auth0.com/blog/bootstrapping-a-react-project/
 module.exports = config
