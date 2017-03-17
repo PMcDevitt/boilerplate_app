@@ -3,7 +3,7 @@ const BUILD_DIR = path.resolve(__dirname, 'public/javascript')
 const APP_DIR = path.resolve(__dirname, 'src/app')
 
 const config = {
-  entry: APP_DIR + '/Main.jsx',
+  entry: APP_DIR + '/Main.js',
   output: {
     path: BUILD_DIR,
     filename: 'bundle.js'
@@ -16,7 +16,7 @@ const config = {
   module: {
     loaders: [
       {
-        test: /\.jsx$/,
+        test: /\.jsx?$/,
         exclude: /node_modules/,
         loader: 'babel-loader'
       }
