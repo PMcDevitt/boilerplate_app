@@ -1,6 +1,6 @@
 import React from 'react'
 
-const NamedComponents = (props) => (
+const NamedComponent = (props) => (
   <div>
     {props.title}<br />
     {props.subTitle}
@@ -14,4 +14,4 @@ const SubTitle = () => (
   <h1>Hello from SubTitle Component</h1>
 )
 
-module.exports = { NamedComponents, Title, SubTitle }
+module.exports = { NamedComponent, Title, SubTitle }

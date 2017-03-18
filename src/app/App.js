@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Router, Route, IndexRoute, browserHistory } from 'react-router'
 import { Container, Home, About, NotFound } from './pages/Pages.js'
 import { Address, TwitterFeed, Instagram, Query } from './pages/Address'
-import { Title, SubTitle, NamedComponents } from './pages/NamedComponent'
+import { Title, SubTitle, NamedComponent } from './pages/NamedComponent'
 
 class App extends Component {
   render () {
@@ -16,7 +16,7 @@ class App extends Component {
             <Route path='query' component={Query} />
           </Route>
           <Route path='/about(/:name)' component={About} />
-          <Route path='/namedComponent' component={NamedComponents}>
+          <Route path='/namedComponent' component={NamedComponent}>
             <IndexRoute components={{title: Title, subTitle: SubTitle}} />
           </Route>
           <Route path='*' component={NotFound} />

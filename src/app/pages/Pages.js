@@ -1,8 +1,8 @@
 import React from 'react'
-import Nav from '../navbar/Navbar.js'
+import Navbar from '../navbar/Navbar.js'
 
 const Container = (props) => <div>
-  <Nav />
+  <Navbar />
   {props.children}
 </div>
 
@@ -16,4 +16,4 @@ const About = (props) => (
 )
 const NotFound = () => (<h1>404.. This page is not found!</h1>)
 
-module.exports = { Home, NotFound, Container, About }
+module.exports = { Container, Home, NotFound, About }

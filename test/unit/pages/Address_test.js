@@ -41,7 +41,7 @@ describe('Given the Address component', () => {
       expect(wrapper.find('h3').text()).to.equal(h3Text)
     })
   })
-  describe.only('When the Query component is called', () => {
+  describe('When the Query component is called', () => {
     let location = {query: {message: 'Query Feed'}}
     beforeEach(() => {
       wrapper = shallow(<Address.Query location={location} />)
